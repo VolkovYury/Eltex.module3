@@ -19,6 +19,7 @@ int main(int argc, char* argv[])
     fd[0] = atoi(argv[0]);
     fd[1] = atoi(argv[1]);
  
+    // Закрытие входного потока данных
     close(fd[0]);
     size=write(fd[1], str, 14);
     if (size!=14)
@@ -26,6 +27,8 @@ int main(int argc, char* argv[])
         printf("Строка не может быть прочитана полностью\n");
         exit(-1);
     }
+    
+    // Закрытие выходного потока данных
     close(fd[1]);
     return 0;
 }
